@@ -1,0 +1,166 @@
+{
+	"info": {
+		"_postman_id": "256c27ac-8956-4b3d-9117-2d6cbdb6e184",
+		"name": "IndiaTodayAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CreateProfile",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Username\": \"Mayank Goyal\",\r\n    \"Email\": \"mayankgoel756@gmail.com\",\r\n    \"Password\": \"12345678\",\r\n    \"Phone_Number\": \"9643574584\",\r\n    \"Date_of_Birth\": \"2 nov 1998\",\r\n    \"Time_of_Birth\": \"6:32 AM\",\r\n    \"Gender\": \"male\",\r\n    \"Marital_Status\": \"unmarried\",\r\n    \"Language\": \"english\",\r\n    \"Profile_picture\": \"7719b1ea614cd069f825ddec6ef52789\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/profile/data",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"profile",
+						"data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "upload profile picture",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/mayankgoyal/Downloads/bootstrap-5.0.2.zip"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/profile/picture",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"profile",
+						"picture"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read profile data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/news",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"news"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read News",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/news",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"news"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read News after filter by author name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/news/filter",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"news",
+						"filter"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read News In Desc",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/news/sortdesc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"news",
+						"sortdesc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read News In Asc",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/news/sortasc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"news",
+						"sortasc"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
