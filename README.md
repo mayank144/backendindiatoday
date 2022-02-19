@@ -53,3 +53,11 @@ and In Application It looks like this
 ![image](https://user-images.githubusercontent.com/43082508/154816207-977ef293-5f0d-4ddc-a4b2-5f6c4512314c.png)
 
 ############################################################################################################
+5. Read News After Apply filter
+![image](https://user-images.githubusercontent.com/43082508/154816258-7a7f1af5-9430-4f21-965a-47eaff4e5b09.png)
+
+############################################################################################################
+6. Read article in Orders like Ascending or descending acccording author name
+![image](https://user-images.githubusercontent.com/43082508/154816298-406cf959-4f29-4546-a722-003ee861f480.png)
+
+![image](https://user-images.githubusercontent.com/43082508/154816313-6ac63993-4cb6-4a73-9542-23ffa4426bc7.png)
