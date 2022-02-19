@@ -6,7 +6,7 @@ const articles = [{
             "id": null,
             "name": "bdnews24.com"
         },
-        "author": null,
+        "author": "Aaron Mak",
         "title": "For companies, winning in China now means losing somewhere else",
         "description": "Companies usually shell out for Olympic sponsorship because it helps their business and reflects well on their brands. But this year, with the Olympics in Beijing, Procter & Gamble paid even more to try to prevent any negative fallout from being associated wi…",
         "url": "https://bdnews24.com/business/2022/02/19/for-companies-winning-in-china-now-means-losing-somewhere-else",
@@ -175,7 +175,7 @@ const articles = [{
             "id": "news24",
             "name": "News24"
         },
-        "author": null,
+        "author": "Walter Sinn",
         "title": "News24.com | Musk donates satellite gear to reconnect Tonga",
         "description": "Tonga says space entrepreneur and Tesla founder Elon Musk has donated 50 satellite terminals to help the volcano-damaged Pacific island reconnect with the world.",
         "url": "https://www.news24.com/news24/Africa/News/musk-donates-satellite-gear-to-reconnect-tonga-20220219",
@@ -240,7 +240,7 @@ const articles = [{
             "id": "t3n",
             "name": "T3n"
         },
-        "author": null,
+        "author": "Walter Sinn",
         "title": "Tesla reagiert klammheimlich auf Chipmangel, liefert Autos ohne autonome Fahroption aus",
         "description": "Das Kraftfahrt-Bundesamt will von Tesla wissen, warum in Deutschland 13.500 Model Y und Model 3 ohne das für autonome Fahrfunktionen erforderliche Steuergerät ausgeliefert wurden. Der Grund dürfte in der Chipknappheit liegen.\nDem Spiegel liegen Dokumente vor,…",
         "url": "https://t3n.de/consent?redirecturl=%2Fnews%2Ftesla-verbaut-weniger-chips-1453167%2F%3Futm_source%3Drss%26utm_medium%3Dfeed%26utm_campaign%3Dnews",
@@ -262,7 +262,62 @@ const articles = [{
         "content": "Die Pannenhelfer des ADAC rückten 2021 zu viel mehr E-Auto-Einsätzen aus als im Vorjahr, die Zahl der Einsätze ist explodiert. Ein Grund, sich vom E-Auto-Traum zu verabschieden, ist das aber nicht. E… [+2149 chars]"
     }
 ];
+const bubble_SortInAsc = (a) => {
+    var swap;
+    var n = a.length - 1;
+    var x = a;
+    do {
+        swap = false;
+        for (var i = 0; i < n; i++) {
+            if (x[i].publishedAt < x[i + 1].publishedAt) {
+                var temp = x[i];
+                x[i] = x[i + 1];
+                x[i + 1] = temp;
+                swap = true;
+            }
+        }
+        n--;
+    } while (swap);
+    return x;
+}
+const bubble_SortInDesc = (a) => {
+    var swap;
+    var n = a.length - 1;
+    var x = a;
+    do {
+        swap = false;
+        for (var i = 0; i < n; i++) {
+            if (x[i].publishedAt > x[i + 1].publishedAt) {
+                var temp = x[i];
+                x[i] = x[i + 1];
+                x[i + 1] = temp;
+                swap = true;
+            }
+        }
+        n--;
+    } while (swap);
+    return x;
+}
 router.get('/', async(req, res) => {
     return res.status(201).send({ "articles": articles })
 });
+
+router.get('/sortasc', async(req, res) => {
+    return res.status(201).send({ "articles": bubble_SortInAsc(articles) })
+});
+
+router.get('/sortdesc', async(req, res) => {
+    return res.status(201).send({ "articles": bubble_SortInDesc(articles) })
+});
+
+
+router.get('/filter', async(req, res) => {
+    console.log(req.body)
+    if (req.body.author) {
+        return res.status(201).send({
+            "articles": articles.filter(article => article.author === "Felix Gräber")
+        })
+    }
+    return res.status(201).send({ "articles": articles })
+})
 module.exports = router;
