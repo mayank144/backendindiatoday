@@ -315,7 +315,7 @@ router.get('/filter', async(req, res) => {
     console.log(req.body)
     if (req.body.author) {
         return res.status(201).send({
-            "articles": articles.filter(article => article.author === "Felix Gräber")
+            "articles": articles.filter(article => article.author === req.body.author)
         })
     }
     return res.status(201).send({ "articles": articles })
